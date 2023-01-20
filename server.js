@@ -1,5 +1,5 @@
 //require port
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3001;
 
 //require needed pacakages
 const express = require('express');
