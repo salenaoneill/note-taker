@@ -15,6 +15,12 @@ const { v4 : uuidv4 } = require('uuid');
 
 const savedNotes = require('./db/db.json');
 
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static('public'));
+
 //GET /api/notes reads the db.json file and returns all saved notes as JSON.
 app.get('/api/notes', (req, res) => {
     res.json(savedNotes);
