@@ -7,9 +7,6 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
-
 //require package that gives each note a unique id
 const { v4 : uuidv4 } = require('uuid');
 
@@ -45,7 +42,7 @@ function addNewNote(body, notesArray) {
 }
 
 //POST /api/notes recieves a new note to save on the request body, add it to the db.json file, and then return the new note to the client.
-app.post('/api/notes', jsonParser, (req, res) => {
+app.post('/api/notes', (req, res) => {
     console.log(req);
     const newNote = addNewNote(req.body, savedNotes);
     res.json(newNote);
